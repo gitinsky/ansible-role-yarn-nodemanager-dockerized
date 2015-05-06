@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+JAVA_HOME=/jdk1.8.0_40/
+export JAVA_HOME
+chown -R hadoop:hadoop /var/hadoop
+chown -R hadoop:hadoop /hadoop/logs
+exec sudo -E -u hadoop /hadoop/bin/yarn nodemanager 1>>/var/log/yarn-nodemanager.log 2>&1
